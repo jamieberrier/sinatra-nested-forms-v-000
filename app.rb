@@ -24,5 +24,16 @@ module FormsLab
       erb :'pirates/show'
     end
 
+    get '/pirates' do
+      @pirates = Pirate.all
+
+      erb :'pirates/index'
+    end
+
+    get '/pirates/:id' do
+      @pirate = Pirate.find(params[:id])
+
+      erb :'pirates/show'
+    end
   end
 end

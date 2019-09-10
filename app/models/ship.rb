@@ -1,11 +1,13 @@
-class Ship
-  attr_reader :name, :type, :booty
+class Ship < ActiveRecord::Base
+  belongs_to :pirate
+
+  attr_reader :name, :category, :booty
 
   SHIPS = []
 
   def initialize(args)
     @name = args[:name]
-    @type = args[:type]
+    @category = args[:category]
     @booty = args[:booty]
 
     SHIPS << self
